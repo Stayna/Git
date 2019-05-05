@@ -5,19 +5,5 @@
       
 
       $page = file_get_contents($rss); 
-      
-
-      $newpage = preg_replace_callback("|(CDATA\[)(.+)(\]\])|imU",  
-      function ($matches) { 
-        $t0 = preg_replace ("|\<\/br\>|imU", "\t", $matches[2]);     
-        $t1 = strip_tags($t0, "<img>"); 
-        $t2 = preg_replace_callback ("|(\<img src=')(.+)('/\>)|imU", 
-        function ($matches) { 
-          return $matches[2]; 
-        }, $t1); 
-      $t3 = preg_replace ("|http.+\.jpg|imU", "\t$0\t", $t2); 
-      $text = $matches[1] . $t3 . $matches[3]; 
-      $ntext = preg_replace('|[\r\n\s]+|imU', " ", $text); return $ntext; }, "$page"); 
-
-      echo $newpage;
+      echo $page;
     ?> 
