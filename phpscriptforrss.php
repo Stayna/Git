@@ -5,7 +5,6 @@
       
       // засасываем RSS ленту VK в переменную $page одно строкой 
       $page = file_get_contents($rss); 
-	  echo $page;
       
       // далее пошла жоская кастрация текста регулярками (кто в теме поймет) 
       $newpage = preg_replace_callback("|(CDATA\[)(.+)(\]\])|imU",  
