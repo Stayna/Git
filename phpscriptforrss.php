@@ -1,19 +1,7 @@
     <?php 
-    // костыль v0.1 by Jinnd 08.03.2019 
-    // 57846937 - id паблика МДК (для справки) 
-      $vk =''; // назначаем переменой пустое значение 
-      
-      // проверяем передано ли адресной строкой id паблика vk и является ли он числовым   
-      if(isset($_get['vk']) and is_numeric($_get['vk'])){     
-      $vk = $_get['vk']; // если удачно , то присваиваем id переменной $vk 
-      } 
-      else { 
-      //иначе пишем сообщение об ошибке и приостанавливаем выполнение скрипта    
-      echo "вы не задали id паблика в строке запроса через переменную 'vk' !";    exit(); 
-      } 
-      
+
       // далее присваиваем адресу генерируемой RSS ленты id паблика VK
-      $rss = "https://vkapi.ga/functional/vk2rss/rss.php?access_token=7e34d1f0146b636911112acf9b1ec307408a99a42064a17082b0387966f640168c21335aae99d9eaeb70d&id=grecha_team". $vk . "&count=10&include=%23memes%40grecha_team&exclude="; 
+      $rss = "https://vkapi.ga/functional/vk2rss/rss.php?access_token=7e34d1f0146b636911112acf9b1ec307408a99a42064a17082b0387966f640168c21335aae99d9eaeb70d&id=grecha_team". 176222313 . "&count=10&include=%23memes%40grecha_team&exclude="; 
       
       // засасываем RSS ленту VK в переменную $page одно строкой 
       $page = file_get_contents($rss); 
